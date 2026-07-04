@@ -123,7 +123,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FightGame.cpp" />
     <ClCompile Include="LastKadai.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FightGame.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
