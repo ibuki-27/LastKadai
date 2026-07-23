@@ -1,5 +1,5 @@
 ﻿#include<iostream>
-#include"FightGame.h"
+#include"Character.h"
 
 int main()
 {
