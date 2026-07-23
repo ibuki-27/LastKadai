@@ -123,11 +123,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="FightGame.cpp" />
+    <ClCompile Include="Character.cpp" />
     <ClCompile Include="LastKadai.cpp" />
+    <ClCompile Include="Swordman.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FightGame.h" />
+    <ClInclude Include="Character.h" />
+    <ClInclude Include="Swordman.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
