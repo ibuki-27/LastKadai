@@ -1,5 +1,3 @@
-#include<iostream>
-#include<stdlib.h>
 #include"Character.h"
 
 Character::Character(std::string name, int attackPower)
@@ -17,6 +15,11 @@ int Character::Attack()
 void Character::Defense()
 {
 	isDefending_ = true;
+}
+
+Character::~Character()
+{
+
 }
 
 

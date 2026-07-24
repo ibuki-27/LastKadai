@@ -12,5 +12,6 @@ public:
 	Character(std::string name, int attackPower);
 	int Attack();
     void Defense();
+	virtual ~Character();
 
 };
