@@ -13,5 +13,6 @@ public:
 	int Attack();
     void Defense();
 	virtual ~Character();
+	std::string GetName();
 
 };

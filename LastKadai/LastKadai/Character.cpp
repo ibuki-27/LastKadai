@@ -21,5 +21,9 @@ Character::~Character()
 {
 
 }
+std::string Character::GetName()
+{
+	return name_;
+}
 
 

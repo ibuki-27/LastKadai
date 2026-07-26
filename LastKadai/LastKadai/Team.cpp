@@ -11,3 +11,23 @@ Team::Team()
 	wizard_ = std::unique_ptr<Character>(new Wizard());
 	summoner_ = std::unique_ptr<Character>(new Summoner());
 }
+
+Character& Team::GetSwordman()
+{
+	return *swordman_;
+}
+
+Character& Team::GetWizard()
+{
+	return *wizard_;
+}
+
+Character& Team::GetSummoner()
+{
+	return *summoner_;
+}
+
+int Team::GetStrength()
+{
+	return strength_;
+}
