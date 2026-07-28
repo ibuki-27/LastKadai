@@ -105,7 +105,20 @@ void FightGame::Run()
 		int enemyAction = SelectEnemyAction();
 
 		Battle(allyCharacter, enemyCharacter, allyAction, enemyAction);
+
+		std::cout << "味方戦力 : " << ally_.GetStrength() << std::endl;
+		std::cout << "敵戦力 : " << enemy_.GetStrength() << std::endl;
 	}
+
+	if (ally_.GetStrength() <= 0)
+	{
+		std::cout << "敵チームの勝利！" << std::endl;
+	}
+	else
+	{
+		std::cout << "味方チームの勝利！" << std::endl;
+	}
+
 }
 
 // バトル判定関数
@@ -139,12 +152,115 @@ void FightGame::Battle(Character& allyCharacter, Character& enemyCharacter, int 
 			}
 			else if (enemyCharacter.GetName() == "魔法使い")
 			{
+				std::cout << "カウンター発生！" << std::endl;
 				ally_.Damage(allyCharacter.Attack() * 2);
 			}
 			else if (enemyCharacter.GetName() == "召喚士")
 			{
+				std::cout << "クリティカル発生！" << std::endl;
 				enemy_.Damage(allyCharacter.Attack() * 2);
 			}
 		}
+		else if (allyCharacter.GetName() == "魔法使い")
+		{
+			if (enemyCharacter.GetName() == "剣士")
+			{
+				std::cout << "クリティカル発生！" << std::endl;
+				enemy_.Damage(allyCharacter.Attack() * 2);
+			}
+			else if (enemyCharacter.GetName() == "魔法使い")
+			{
+				std::cout << "ドロー" << std::endl;
+			}
+			else if (enemyCharacter.GetName() == "召喚士")
+			{
+				std::cout << "カウンター発生！" << std::endl;
+				ally_.Damage(allyCharacter.Attack() * 2);
+			}
+		}
+		else if (allyCharacter.GetName() == "召喚士")
+		{
+			if (enemyCharacter.GetName() == "剣士")
+			{
+				std::cout << "カウンター発生！" << std::endl;
+				ally_.Damage(allyCharacter.Attack() * 2);
+			}
+			else if (enemyCharacter.GetName() == "魔法使い")
+			{
+				std::cout << "クリティカル発生！" << std::endl;
+				enemy_.Damage(allyCharacter.Attack() * 2);
+			}
+			else if (enemyCharacter.GetName() == "召喚士")
+			{
+				std::cout << "ドロー" << std::endl;
+			}
+		}
 	}
+
+	// 味方防御 vs 敵攻撃
+	if (allyAction == 2 && enemyAction == 1)
+	{
+		if (enemyCharacter.GetName() == "剣士")
+		{
+			if (allyCharacter.GetName() == "剣士")
+			{
+				std::cout << "ドロー" << std::endl;
+			}
+			else if (allyCharacter.GetName() == "魔法使い")
+			{
+				std::cout << "カウンター発生！" << std::endl;
+				enemy_.Damage(enemyCharacter.Attack() * 2);
+			}
+			else if (allyCharacter.GetName() == "召喚士")
+			{
+				std::cout << "クリティカル発生！" << std::endl;
+				ally_.Damage(enemyCharacter.Attack() * 2);
+			}
+		}
+		else if (enemyCharacter.GetName() == "魔法使い")
+		{
+			if (allyCharacter.GetName() == "剣士")
+			{
+				std::cout << "クリティカル発生！" << std::endl;
+				ally_.Damage(enemyCharacter.Attack() * 2);
+			}
+			else if (allyCharacter.GetName() == "魔法使い")
+			{
+				std::cout << "ドロー" << std::endl;
+			}
+			else if (allyCharacter.GetName() == "召喚士")
+			{
+				std::cout << "カウンター発生！" << std::endl;
+				enemy_.Damage(enemyCharacter.Attack() * 2);
+			}
+		}
+		else if (enemyCharacter.GetName() == "召喚士")
+		{
+			if (allyCharacter.GetName() == "剣士")
+			{
+				std::cout << "カウンター発生！" << std::endl;
+				enemy_.Damage(enemyCharacter.Attack() * 2);
+			}
+			else if (allyCharacter.GetName() == "魔法使い")
+			{
+				std::cout << "クリティカル発生！" << std::endl;
+				ally_.Damage(enemyCharacter.Attack() * 2);
+			}
+			else if (allyCharacter.GetName() == "召喚士")
+			{
+				std::cout << "ドロー" << std::endl;
+			}
+		}
+	}
+
+	// 味方防御 vs 敵防御
+	if (allyAction == 2 && enemyAction == 2)
+	{
+		std::cout << "ドロー" << std::endl;
+	}
+}
+
+FightGame::FightGame()
+{
+
 }

@@ -31,3 +31,15 @@ int Team::GetStrength()
 {
 	return strength_;
 }
+
+void Team::Damage(int damage)
+{
+	// í—Í‚ğŒ¸‚ç‚·
+	strength_ -= damage;
+
+	// 0–¢–‚È‚ç0‚É‚·‚é
+	if (strength_ < 0)
+	{
+		strength_ = 0;
+	}
+}
